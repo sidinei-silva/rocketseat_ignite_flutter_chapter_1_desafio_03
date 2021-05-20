@@ -10,9 +10,20 @@ class ButtonAddWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
-      child: Icon(Icons.add),
-      onPressed: onPressed,
+    return Padding(
+      padding: const EdgeInsets.all(0),
+      child: Container(
+        height: 48,
+        child: ElevatedButton(
+          onPressed: onPressed,
+          child: Text("Adicionar"),
+          style: ElevatedButton.styleFrom(
+            shape: new RoundedRectangleBorder(
+              borderRadius: BorderRadius.zero,
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
