@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes/home_page.dart';
 
 class AppWidget extends StatelessWidget {
   // This widget is the root of your application.
@@ -6,7 +7,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Notes App',
-      home: Container(),
+      home: HomePage(),
     );
   }
 }
