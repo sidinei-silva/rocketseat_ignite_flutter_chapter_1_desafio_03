@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:notes/pages/create_note/widgets/button_save/button_save_widget.dart';
+import 'package:notes/pages/create_note/widgets/input_note/input_note_widget.dart';
+import 'package:notes/shared/widgets/app_bar/app_bar_widgets.dart';
 
 class CreateNotePage extends StatefulWidget {
   @override
@@ -27,9 +30,8 @@ class _CreateNotePageState extends State<CreateNotePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: isEdit ? Text("Edit Page") : Text("Create Page"),
-        centerTitle: true,
+      appBar: AppBarWidget(
+        title: isEdit ? "Edit Page" : "Create Page",
         actions: [
           IconButton(
             icon: Icon(Icons.delete),
@@ -44,29 +46,22 @@ class _CreateNotePageState extends State<CreateNotePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(
-              controller: textController,
-              maxLines: null,
+            InputNoteWidget(
+              textController: textController,
               onChanged: (value) {
-                setState(() {
-                  description = value;
-                });
+                setState(
+                  () {
+                    description = value;
+                  },
+                );
               },
-              decoration: InputDecoration(labelText: "Descrição"),
             ),
             SizedBox(height: 32),
             if (description.isNotEmpty)
-              Row(
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pop(context, description);
-                      },
-                      child: Text("Salvar"),
-                    ),
-                  ),
-                ],
+              ButtonSaveWidget(
+                onPressed: () {
+                  Navigator.pop(context, description);
+                },
               )
           ],
         ),
