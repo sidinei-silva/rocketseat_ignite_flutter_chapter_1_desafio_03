@@ -8,7 +8,11 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Notes App',
-      home: CreateNotePage(),
+      initialRoute: "/home",
+      routes: {
+        "/home": (context) => HomePage(),
+        "/create-note": (context) => CreateNotePage()
+      },
     );
   }
 }
