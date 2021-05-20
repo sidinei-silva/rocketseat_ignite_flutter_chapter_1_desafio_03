@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      floatingActionButton: ButtonAddWidget(
+      bottomNavigationBar: ButtonAddWidget(
         onPressed: () async {
           var description = await Navigator.pushNamed(context, "/create-note");
 
