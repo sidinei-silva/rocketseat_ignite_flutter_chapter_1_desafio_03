@@ -9,6 +9,7 @@ class AppWidget extends StatelessWidget {
     return MaterialApp(
       title: 'Notes App',
       initialRoute: "/home",
+      theme: ThemeData(primarySwatch: Colors.teal),
       routes: {
         "/home": (context) => HomePage(),
         "/create-note": (context) => CreateNotePage()
